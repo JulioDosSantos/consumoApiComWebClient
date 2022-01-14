@@ -67,17 +67,10 @@ public class PostService {
 		
 		// DESTA MANEIRA RODA DE FORMA NAO REATIVA, NAO TERIA PQ USAR		
 //		Post post1 = monoPost1.block();
-//		System.out.println("------------------------------");
-//		System.out.println(post1);
-//		
 //		Post post2 = monoPost2.block();
-//		System.out.println("------------------------------");
-//		System.out.println(post2);
 		
 		// DESTA MANEIRA RODA DE FORMA REATIVA
 		post = Mono.zip(monoPost1, monoPost2).map(tuple -> {
-			System.out.println(tuple.getT1());
-			System.out.println(tuple.getT2());
 			return tuple.getT1();
 		}).block();
 		
@@ -106,8 +99,6 @@ public class PostService {
 		
 		// DESTA MANEIRA RODA DE FORMA REATIVA
 		post = Mono.zip(monoPost1, monoPost2).map(tuple -> {
-			System.out.println(tuple.getT1());
-			System.out.println(tuple.getT2());
 			return tuple.getT1();
 		}).block();
 		
